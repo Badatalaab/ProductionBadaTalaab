@@ -109,7 +109,13 @@ const FormComponent = () => {
             name="phone"
             required
             value={Phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              // Allow only numbers and limit to 10 digits
+              if (/^\d{0,10}$/.test(value)) {
+                setPhone(value);
+              }
+            }}
             className="mt-1 block w-full  bg-transparent border-b-2 border-[#DFDFDF]  focus:outline-none focus:border-gray-400 focus:ring-0"
           />
         </div>

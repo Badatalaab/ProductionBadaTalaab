@@ -111,7 +111,12 @@ const Createadmincomponent = (props) => {
             id="phone"
             value={Phone}
             onChange={(e) => {
-              setPhone(e.target.value);
+              const value = e.target.value;
+
+              // Allow only numbers and restrict the length to 10 digits
+              if (value.length <= 10) {
+                setPhone(value);
+              }
             }}
             className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm no-spinner"
             required
